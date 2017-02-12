@@ -26,17 +26,17 @@ int main()
 	log4cpp::PatternLayout* layout = new log4cpp::PatternLayout();
 	layout->setConversionPattern("%d [%5t] %-6p %c - %m%n");
 
-	log4cpp::Appender *appender2 = new log4cpp::FileAppender("default", "cVF.log");
+	log4cpp::Appender *appender2 = new log4cpp::FileAppender("default", "test.log");
 	appender2->setLayout(layout);
 	appender2->setThreshold(log4cpp::Priority::INFO);
 
-	log4cpp::Appender *appender3 = new log4cpp::FileAppender("detailed", "cVF_Detailed.log");
+	log4cpp::Appender *appender3 = new log4cpp::FileAppender("detailed", "test_Detailed.log");
 	appender3->setLayout(layout);
-	appender3->setThreshold(700);			// hardcode value for DEBUG
+	appender3->setThreshold(log4cpp::Priority::DEBUG);		
 
-	_rootLogger.setPriority(700);
-	_rootLogger.addAppender(appender2);
-	_rootLogger.addAppender(appender3);
+	log4cpp::Category::getRoot().setPriority(log4cpp::Priority::DEBUG);
+	log4cpp::Category::getRoot().addAppender(appender2);
+	log4cpp::Category::getRoot().addAppender(appender3);
 
 	double a = 7.4;
 	int b = 99;

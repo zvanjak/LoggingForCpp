@@ -15,18 +15,22 @@ namespace MathLibrary
 {
 	double Functions::Add(double a, double b)
 	{
-		log4cpp::Category::getRoot().info("Dll Add");
+		log4cpp::Category::getRoot().info("DLL Add");
 
 		return a + b;
 	}
 
 	double Functions::Multiply(double a, double b)
 	{
+		log4cpp::Category::getRoot().info("DLL Mul");
+
 		return a * b;
 	}
 
 	double Functions::AddMultiply(double a, double b)
 	{
+		log4cpp::Category::getRoot().info("DLL Add+Mul");
+
 		return a + (a * b);
 	}
 }
